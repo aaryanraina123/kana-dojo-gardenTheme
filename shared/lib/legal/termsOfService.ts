@@ -23,8 +23,9 @@ Welcome to **KanaDojo** (the "Website"). By accessing or using our Website, you 
 - **Ownership:** All text, images, graphics, and materials on the Website belong to **KanaDojo** unless otherwise stated.  
 - **Restrictions:** You may not copy, distribute, modify, or reproduce our content without permission.  
 
-## 4. Third-Party Links  
+## 4. Third-Party Links & Services  
 - Our Website may contain links to third-party websites.  
+- We use third-party analytics services including Google Analytics, Microsoft Clarity, and PostHog to improve our Website.
 - We are not responsible for the content or security of external websites.  
 - Visiting such websites is at your own risk.  
 
@@ -37,7 +38,7 @@ Welcome to **KanaDojo** (the "Website"). By accessing or using our Website, you 
 
 ## 6. Limitation of Liability  
 - **KanaDojo** is not liable for damages, **direct or indirect**, arising from your use of the Website.  
-- We are not responsible for **data loss, system failures, or security breaches** related to using third-party services like Google Analytics.  
+- We are not responsible for **data loss, system failures, or security breaches** related to using third-party services like Google Analytics, Microsoft Clarity, or PostHog.  
 
 
 ## 7. Changes to These Terms  

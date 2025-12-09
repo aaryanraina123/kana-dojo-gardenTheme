@@ -8,7 +8,7 @@ At **KanaDojo**, we take security seriously and strive to protect our website an
 
 ## 1. Scope
 
-This Security Policy applies to the **KanaDojo** website (kanadojo.com), including its infrastructure, content, and third-party services used (such as Google Analytics).
+This Security Policy applies to the **KanaDojo** website (kanadojo.com), including its infrastructure, content, and third-party services used (such as Google Analytics, Microsoft Clarity, and PostHog).
 
 
 ## 2. Website Security Practices
@@ -23,13 +23,19 @@ To ensure the security of our website, we:
 
 ## 3. Data Security & Privacy
 
-We do not collect personal data directly. However, we use **Google Analytics**, which gathers anonymous usage information (e.g., page visits, browser type, and geographic location).
+We do not collect personal data directly. However, we use the following analytics services that gather anonymous usage information:
+
+- **Google Analytics** - gathers page visits, browser type, and geographic location
+- **Microsoft Clarity** - collects session recordings, heatmaps, and user interaction data
+- **PostHog** - collects feature usage analytics and session replays
 
 To enhance data security:
 
 - We **do not store sensitive or personally identifiable information**.
-- Google Analytics data is handled under [Google’s Privacy Policy](https://policies.google.com/privacy).
-- We allow users to **opt out of Google Analytics tracking** using browser settings or the [Google Analytics Opt-Out Add-on](https://tools.google.com/dlpage/gaoptout).
+- Google Analytics data is handled under [Google's Privacy Policy](https://policies.google.com/privacy).
+- Microsoft Clarity data is handled under [Microsoft's Privacy Statement](https://privacy.microsoft.com/en-us/privacystatement).
+- PostHog data is handled under [PostHog's Privacy Policy](https://posthog.com/privacy).
+- We allow users to **opt out of analytics tracking** using browser settings, privacy extensions, or the [Google Analytics Opt-Out Add-on](https://tools.google.com/dlpage/gaoptout).
 
 
 ## 4. Handling Security Vulnerabilities
@@ -48,9 +54,15 @@ We appreciate **ethical hacking and responsible disclosure** and will investigat
 
 ## 5. Third-Party Services & Dependencies
 
-We utilize third-party services (e.g., Google Analytics) that have their **own security policies**. While we take precautions to only use reputable services, we cannot guarantee the security of third-party platforms.
+We utilize the following third-party services that have their **own security policies**:
 
-Users visiting external links (e.g., third-party resources) should review those websites’ security policies.
+- **Google Analytics** - [Google Security](https://policies.google.com/technologies/security)
+- **Microsoft Clarity** - [Microsoft Security](https://www.microsoft.com/en-us/trust-center/security)
+- **PostHog** - [PostHog Security](https://posthog.com/handbook/company/security)
+
+While we take precautions to only use reputable services, we cannot guarantee the security of third-party platforms.
+
+Users visiting external links (e.g., third-party resources) should review those websites' security policies.
 
 
 ## 6. Future Improvements
