@@ -6,6 +6,24 @@ export interface PatchNote {
 
 export const patchNotesData: PatchNote[] = [
   {
+    version: '0.1.11',
+    date: 'December 18, 2025',
+    changes: [
+      'New Gauntlet Mode: Test your skills in a challenging survival game mode where mistakes cost you lives',
+      'Patch notes now open in a beautiful modal without leaving your current page',
+      'Added "made with ❤️ by the community" message to the bottom bar',
+      'Press Escape key to quickly close the welcome modal',
+      'New Yume Mori dark theme available in settings',
+      'Festive Mariah Carey Christmas theme with holiday music',
+      'Renamed "Train" button to "Classic Training" for clarity',
+      'Lightning bolt icon now marks Blitz mode for easier recognition',
+      'Improved audio system for smoother sound playback',
+      'Enhanced Kana Rain animation for a more fluid experience',
+      'Select All button now has thicker borders for better visibility',
+      'Polished UI across achievements and progress pages'
+    ]
+  },
+  {
     version: '0.1.10',
     date: 'December 12, 2025',
     changes: [
