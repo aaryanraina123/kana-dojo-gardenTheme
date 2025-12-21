@@ -132,59 +132,107 @@ export default function PreGameScreen({
           </div>
 
           {/* Difficulty Selection */}
-          <div className='space-y-3'>
-            <h3 className='text-sm font-medium text-[var(--secondary-color)]'>
-              Difficulty
-            </h3>
-            <div className='grid grid-cols-3 gap-2'>
-              {(
-                Object.entries(DIFFICULTY_CONFIG) as [
-                  GauntletDifficulty,
-                  (typeof DIFFICULTY_CONFIG)[GauntletDifficulty]
-                ][]
-              ).map(([key, config]) => {
-                const isSelected = key === difficulty;
-                return (
-                  <button
-                    key={key}
-                    onClick={() => handleDifficultyClick(key)}
-                    className={clsx(
-                      'flex flex-col items-center gap-1 rounded-xl p-3',
-                      'border-2 transition-all duration-200',
-                      'hover:cursor-pointer',
-                      isSelected
-                        ? 'border-[var(--main-color)] bg-[var(--main-color)]/10'
-                        : 'border-[var(--border-color)] bg-[var(--card-color)] hover:border-[var(--secondary-color)]/50'
-                    )}
-                  >
-                    <div
-                      className={clsx(
-                        'text-lg',
-                        isSelected
-                          ? 'text-[var(--main-color)]'
-                          : 'text-[var(--muted-color)]'
-                      )}
-                    >
-                      {difficultyIcons[key]}
-                    </div>
-                    <span
-                      className={clsx(
-                        'text-xs font-medium',
-                        isSelected
-                          ? 'text-[var(--main-color)]'
-                          : 'text-[var(--secondary-color)]'
-                      )}
-                    >
-                      {config.label}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-            <p className='text-center text-xs text-[var(--muted-color)]'>
-              {DIFFICULTY_CONFIG[difficulty].description}
-            </p>
-          </div>
+          {(() => {
+            // Toggle between old and new difficulty selector designs
+            const useNewDifficultySelector = true;
+
+            if (useNewDifficultySelector) {
+              return (
+                <div className='space-y-3'>
+                  <h3 className='text-sm font-medium text-[var(--secondary-color)]'>
+                    Difficulty
+                  </h3>
+                  <div className='flex w-full justify-center gap-2 rounded-2xl border-1 border-[var(--border-color)] bg-[var(--card-color)] p-2'>
+                    {(
+                      Object.entries(DIFFICULTY_CONFIG) as [
+                        GauntletDifficulty,
+                        (typeof DIFFICULTY_CONFIG)[GauntletDifficulty]
+                      ][]
+                    ).map(([key, config]) => {
+                      const isSelected = key === difficulty;
+                      return (
+                        <ActionButton
+                          key={key}
+                          onClick={() => handleDifficultyClick(key)}
+                          colorScheme={isSelected ? 'main' : undefined}
+                          borderColorScheme={isSelected ? 'main' : undefined}
+                          borderBottomThickness={isSelected ? 6 : 0}
+                          className={clsx(
+                            'flex-1 gap-1.5 px-4 py-2.5 text-sm',
+                            !isSelected &&
+                              'bg-transparent text-[var(--secondary-color)] hover:bg-[var(--border-color)]/50 hover:text-[var(--main-color)]'
+                          )}
+                        >
+                          {difficultyIcons[key]}
+                          <span>{config.label}</span>
+                        </ActionButton>
+                      );
+                    })}
+                  </div>
+                  <p className='text-center text-xs text-[var(--muted-color)]'>
+                    {DIFFICULTY_CONFIG[difficulty].description}
+                  </p>
+                </div>
+              );
+            }
+
+            // Old difficulty selector design
+            return (
+              <div className='space-y-3'>
+                <h3 className='text-sm font-medium text-[var(--secondary-color)]'>
+                  Difficulty
+                </h3>
+                <div className='grid grid-cols-3 gap-2'>
+                  {(
+                    Object.entries(DIFFICULTY_CONFIG) as [
+                      GauntletDifficulty,
+                      (typeof DIFFICULTY_CONFIG)[GauntletDifficulty]
+                    ][]
+                  ).map(([key, config]) => {
+                    const isSelected = key === difficulty;
+                    return (
+                      <button
+                        key={key}
+                        onClick={() => handleDifficultyClick(key)}
+                        className={clsx(
+                          'flex flex-col items-center gap-1 rounded-xl p-3',
+                          'border-2 transition-all duration-200',
+                          'hover:cursor-pointer',
+                          isSelected
+                            ? 'border-[var(--main-color)] bg-[var(--main-color)]/10'
+                            : 'border-[var(--border-color)] bg-[var(--card-color)] hover:border-[var(--secondary-color)]/50'
+                        )}
+                      >
+                        <div
+                          className={clsx(
+                            'text-lg',
+                            isSelected
+                              ? 'text-[var(--main-color)]'
+                              : 'text-[var(--muted-color)]'
+                          )}
+                        >
+                          {difficultyIcons[key]}
+                        </div>
+                        <span
+                          className={clsx(
+                            'text-xs font-medium',
+                            isSelected
+                              ? 'text-[var(--main-color)]'
+                              : 'text-[var(--secondary-color)]'
+                          )}
+                        >
+                          {config.label}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+                <p className='text-center text-xs text-[var(--muted-color)]'>
+                  {DIFFICULTY_CONFIG[difficulty].description}
+                </p>
+              </div>
+            );
+          })()}
 
           {/* Game Mode Cards */}
           <div className='space-y-3'>
