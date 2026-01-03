@@ -40,7 +40,7 @@ const isKatakana = (char: string): boolean => {
 
 // Tile styles shared between active and blank tiles
 const tileBaseStyles =
-  'relative flex items-center justify-center rounded-xl px-4 py-1.5 text-2xl font-medium sm:px-4 sm:py-2 sm:text-3xl border-b-4';
+  'relative flex items-center justify-center rounded-xl px-5 py-2.5 text-3xl font-medium sm:px-6 sm:py-3 sm:text-4xl border-b-8';
 
 interface TileProps {
   id: string;
@@ -381,7 +381,7 @@ const WordBuildingGame = ({
       {/* Word Display */}
       <div className='flex flex-row items-center gap-1'>
         <motion.p
-          className='text-8xl font-medium sm:text-9xl'
+          className='text-8xl font-normal sm:text-9xl'
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           key={wordData.wordChars.join('')}
