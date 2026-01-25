@@ -89,6 +89,11 @@ jobs:
               errors.push(`Could not list PR files: ${e.message}`);
             }
 
+            const ignoredFiles = ['package-lock.json'];
+            const reviewedFiles = prFiles.filter(function(file) {
+              return !ignoredFiles.includes(file.filename);
+            });
+
             const isThemeContribution = prTitleLower.includes('theme');
             const isFactContribution = prTitleLower.includes('fact') && !prTitleLower.includes('proverb');
             const isProverbContribution = prTitleLower.includes('proverb');
@@ -196,7 +201,7 @@ jobs:
               console.log('Validating theme contribution');
 
               const allowed = ['features/Preferences/data/themes.ts'];
-              const changed = prFiles.map(function(f) { return f.filename; });
+              const changed = reviewedFiles.map(function(f) { return f.filename; });
               const invalidFiles = changed.filter(function(p) { return !allowed.includes(p); });
               if (changed.length !== 1 || invalidFiles.length > 0) {
                 errors.push('Theme PRs must modify only features/Preferences/data/themes.ts');
@@ -232,7 +237,7 @@ jobs:
               console.log('Validating fact contribution');
 
               const allowed = ['public/japan-facts.json'];
-              const changed = prFiles.map(function(f) { return f.filename; });
+              const changed = reviewedFiles.map(function(f) { return f.filename; });
               const invalidFiles = changed.filter(function(p) { return !allowed.includes(p); });
               if (changed.length !== 1 || invalidFiles.length > 0) {
                 errors.push('Fact PRs must modify only public/japan-facts.json');
@@ -272,7 +277,7 @@ jobs:
               console.log('Validating proverb contribution');
 
               const allowed = ['public/japanese-proverbs.json'];
-              const changed = prFiles.map(function(f) { return f.filename; });
+              const changed = reviewedFiles.map(function(f) { return f.filename; });
               const invalidFiles = changed.filter(function(p) { return !allowed.includes(p); });
               if (changed.length !== 1 || invalidFiles.length > 0) {
                 errors.push('Proverb PRs must modify only public/japanese-proverbs.json');
@@ -320,7 +325,7 @@ jobs:
                 'public/japan-trivia-medium.json',
                 'public/japan-trivia-hard.json'
               ];
-              const changed = prFiles.map(function(f) { return f.filename; });
+              const changed = reviewedFiles.map(function(f) { return f.filename; });
               const invalidFiles = changed.filter(function(p) { return !allowed.includes(p); });
               if (changed.length !== 1 || invalidFiles.length > 0) {
                 errors.push('Trivia PRs must modify exactly one trivia JSON file (easy/medium/hard).');
@@ -362,7 +367,7 @@ jobs:
               console.log('Validating grammar contribution');
 
               const allowed = ['public/japanese-grammar.json'];
-              const changed = prFiles.map(function(f) { return f.filename; });
+              const changed = reviewedFiles.map(function(f) { return f.filename; });
               const invalidFiles = changed.filter(function(p) { return !allowed.includes(p); });
               if (changed.length !== 1 || invalidFiles.length > 0) {
                 errors.push('Grammar PRs must modify only public/japanese-grammar.json');
